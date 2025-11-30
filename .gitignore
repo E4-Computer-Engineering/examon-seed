@@ -1,0 +1,14 @@
+*.log
+*.log.*
+*.pyc
+.ipynb_* 
+examon-cache/
+examon-cache/*
+web/examon-server/server.log
+publishers/pbs_pub/.__pbs_pub.lock
+publishers/ganglia_pub/.__ganglia_pub.lock
+docker-compose copy.yml
+publishers/pbs_pub/test_para.py
+publishers/ganglia_pub/bcm_pub
+publishers/ganglia_pub/enelx_pub
+

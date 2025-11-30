@@ -1,0 +1,9 @@
+examon-common>=0.1.0 
+paho-mqtt==1.4.0
+cryptography==2.5
+paramiko==2.7.2
+cassandra-driver==3.17.1
+pandas>=0.24.2
+pandas_explode==0.0.6
+pytz
+examon-client @ https://github.com/fbeneventi/releases/releases/download/v0.3.90/examon-client-0.3.90.zip

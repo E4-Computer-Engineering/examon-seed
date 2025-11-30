@@ -1,0 +1,6 @@
+*.pyc
+*.lock
+*.log
+*.log.*
+*.bak
+enelx_pub.conf

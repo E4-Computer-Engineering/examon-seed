@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>KairosDB &mdash; Examon 0.3.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Examon
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.3.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Examon Python Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libref.html">Library reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Examon</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>KairosDB</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/kairosdb.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-examon.kairosdb">
+<span id="kairosdb"></span><h1>KairosDB<a class="headerlink" href="#module-examon.kairosdb" title="Permalink to this headline">¶</a></h1>
+<p>Kairosdb client</p>
+<p>Created on Thu Nov 03 23:21:42 2016</p>
+<p>&#64;author:<a class="reference external" href="mailto:francesco&#46;beneventi&#37;&#52;&#48;unibo&#46;it">francesco<span>&#46;</span>beneventi<span>&#64;</span>unibo<span>&#46;</span>it</a></p>
+<ol class="loweralpha simple" start="3">
+<li>2017 University of Bologna, [Department of Electrical, Electronic and Information Engineering, DEI]</li>
+</ol>
+<dl class="class">
+<dt id="examon.kairosdb.KairosDb">
+<em class="property">class </em><code class="descclassname">examon.kairosdb.</code><code class="descname">KairosDb</code><span class="sig-paren">(</span><em>host</em>, <em>port='8083'</em>, <em>user=None</em>, <em>password=None</em>, <em>verbose=True</em>, <em>comp='gzip'</em>, <em>proxy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kairosdb REST client</p>
+<p>…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>host</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">KairosDB server IP address</p>
+</dd>
+<dt><strong>port</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">KairosDB server port. Default is 8083</p>
+</dd>
+<dt><strong>user</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">username</p>
+</dd>
+<dt><strong>password</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">password</p>
+</dd>
+<dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Print some extra output (useful for the debug). Default is True</p>
+</dd>
+<dt><strong>comp</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Enable Http compression. Default is ‘gzip’</p>
+</dd>
+<dt><strong>proxy</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Connect to the DB using an API gateway. Currently the client uses a
+Grafana server as a proxy for the db requests and users management.
+If ‘True’, the ‘host’, ‘port’, ‘user’ and ‘password’ arguments are
+the same of an existing Grafana account.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.build_req" title="examon.kairosdb.KairosDb.build_req"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_req</span></code></a>(self,&nbsp;url,&nbsp;method)</td>
+<td>Minimal REST client with basic auth</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.get_tagsfromquery" title="examon.kairosdb.KairosDb.get_tagsfromquery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tagsfromquery</span></code></a>(self,&nbsp;metric,&nbsp;tag)</td>
+<td>Return tag values from the current query</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.print_http_ret" title="examon.kairosdb.KairosDb.print_http_ret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_http_ret</span></code></a>(self,&nbsp;caller,&nbsp;ret)</td>
+<td>Print Http request status</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.query_metrics" title="examon.kairosdb.KairosDb.query_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_metrics</span></code></a>(self,&nbsp;query)</td>
+<td>Query metrics wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.query_metricsnames" title="examon.kairosdb.KairosDb.query_metricsnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_metricsnames</span></code></a>(self[,&nbsp;filter_kmetrics])</td>
+<td>List of all metric names</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.query_metricstags" title="examon.kairosdb.KairosDb.query_metricstags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_metricstags</span></code></a>(self,&nbsp;metric[,&nbsp;tag,&nbsp;filt,&nbsp;…])</td>
+<td>Return tag values for a metric.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.query_tagnames" title="examon.kairosdb.KairosDb.query_tagnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_tagnames</span></code></a>(self)</td>
+<td>List of all tag names</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.query_tagvalues" title="examon.kairosdb.KairosDb.query_tagvalues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_tagvalues</span></code></a>(self)</td>
+<td>List of all tag values</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.send_req" title="examon.kairosdb.KairosDb.send_req"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_req</span></code></a>(self,&nbsp;req_api[,&nbsp;json_data])</td>
+<td>Build and send http request</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.kairosdb.KairosDb.setup_kairosdb" title="examon.kairosdb.KairosDb.setup_kairosdb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_kairosdb</span></code></a>(self,&nbsp;cmd[,&nbsp;method])</td>
+<td>Build kairosdb API request</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.build_req">
+<code class="descname">build_req</code><span class="sig-paren">(</span><em>self</em>, <em>url</em>, <em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.build_req" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimal REST client with basic auth</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.get_tagsfromquery">
+<code class="descname">get_tagsfromquery</code><span class="sig-paren">(</span><em>self</em>, <em>metric</em>, <em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.get_tagsfromquery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return tag values from the current query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>metric</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">metric name</p>
+</dd>
+<dt><strong>tag</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">tag key of the results values</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.print_http_ret">
+<code class="descname">print_http_ret</code><span class="sig-paren">(</span><em>self</em>, <em>caller</em>, <em>ret</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.print_http_ret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print Http request status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.query_metrics">
+<code class="descname">query_metrics</code><span class="sig-paren">(</span><em>self</em>, <em>query</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.query_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query metrics wrapper</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.query_metricsnames">
+<code class="descname">query_metricsnames</code><span class="sig-paren">(</span><em>self</em>, <em>filter_kmetrics=True</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.query_metricsnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all metric names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.query_metricstags">
+<code class="descname">query_metricstags</code><span class="sig-paren">(</span><em>self</em>, <em>metric</em>, <em>tag=None</em>, <em>filt=None</em>, <em>cache=True</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.query_metricstags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return tag values for a metric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>metric</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">metric name</p>
+</dd>
+<dt><strong>tag</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">tag key of the results values</p>
+</dd>
+<dt><strong>filt</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">use <code class="docutils literal notranslate"><span class="pre">filt</span></code> to narrow down the query (filtering by tag)</p>
+</dd>
+<dt><strong>cache</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">if <code class="docutils literal notranslate"><span class="pre">True</span></code> enable the caching of the metrics metadata (tags) to save
+db bandwidth during intensive usage. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the values of the &#39;core&#39; tag for the metric &#39;temp&#39; of node &#39;node109&#39;</span>
+<span class="n">examon</span><span class="o">.</span><span class="n">query_metricstags</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;node&#39;</span><span class="p">:[</span><span class="s1">&#39;node109&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.query_tagnames">
+<code class="descname">query_tagnames</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.query_tagnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all tag names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.query_tagvalues">
+<code class="descname">query_tagvalues</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.query_tagvalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all tag values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.send_req">
+<code class="descname">send_req</code><span class="sig-paren">(</span><em>self</em>, <em>req_api</em>, <em>json_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.send_req" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build and send http request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.kairosdb.KairosDb.setup_kairosdb">
+<code class="descname">setup_kairosdb</code><span class="sig-paren">(</span><em>self</em>, <em>cmd</em>, <em>method='POST'</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.KairosDb.setup_kairosdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build kairosdb API request</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="examon.kairosdb.filtkey">
+<code class="descclassname">examon.kairosdb.</code><code class="descname">filtkey</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.kairosdb.filtkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make mutable objects hashable.</p>
+<p>Used for complex dict args for cachetools.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Beneventi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

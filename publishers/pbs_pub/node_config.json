@@ -1,0 +1,27 @@
+[
+    {
+        "nodes": ["ilnode01"],
+        "power_metrics": ["PS1_Input_Power", "PS2_Input_Power"],
+        "total_power": "PS1_Input_Power + PS2_Input_Power"
+    },
+    {
+        "nodes": ["iwnode[09-12]"],
+        "power_metrics": ["PS1_Input_Power", "PS2_Input_Power", "PS3_Input_Power"],
+        "total_power": "PS1_Input_Power + PS2_Input_Power + PS3_Input_Power"
+    },
+    {
+        "nodes": ["redlogin", "iwnode[05-08]", "icnode[04-05]"],
+        "power_metrics": ["Pwr_Consumption"],
+        "total_power": "Pwr_Consumption"
+    },
+    {
+        "nodes": ["tcnode[13-14]"],
+        "power_metrics": ["Total_Power"],
+        "total_power": "Total_Power"
+    },
+    {
+        "nodes": ["ngnode[01-02]"],
+        "power_metrics": ["Power_PSU0_Real","Power_PSU1_Real"],
+        "total_power": "Power_PSU0_Real + Power_PSU1_Real"
+    }
+]

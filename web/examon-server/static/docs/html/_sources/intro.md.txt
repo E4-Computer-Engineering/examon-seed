@@ -1,0 +1,691 @@
+# Examon Python Client
+
+This client allows to retrieve metrics from the Examon database. It is based on the KairosDB REST interface and the Pandas python package so, for a detailed API reference, please follow the respective documentation.
+
+--------------------
+
+## Client installation
+
+Clone this repository:
+```bash
+mkdir examon-client
+cd examon-client
+git clone https://git.eees.dei.unibo.it/francesco.beneventi/examon-client .
+```
+
+Install locally (no root permissions needed):
+
+```bash
+pip install --user .
+```
+---------------------
+
+## Usage
+
+Import the client
+
+
+```python
+from examon.examon import Examon
+```
+
+Create an examon instance
+
+
+```python
+KAIROSDB_SERVER = '127.0.0.1'
+KAIROSDB_PORT = '8083'
+
+USER = ''
+PWD = ''
+
+ex = Examon(KAIROSDB_SERVER, port=KAIROSDB_PORT, user=USER, password=PWD, verbose=False)
+```
+
+Make a query
+
+
+```python
+tstart = "10-10-2017 17:09:00"   
+tstop = "10-10-2017 21:10:00"
+metrics = ['temp']
+tags = {'node': ['node067']}
+groupby = {'name':'tag', 'tags':['core']}
+aggrby = None
+
+data = ex.query(tstart, tstop, metrics, tags, groupby=groupby, aggrby=aggrby )
+```
+<!--
+### Results
+The json data returned by the query is converted to a Pandas Dataframe.
+
+#### Data layout
+Currently, the client returns queried data in two basic layout: as table and as time series.
+
+##### Table
+The default format (.df_table) is a generic table.
+One row of this table represents a single data point. The columns are the corresponding tag values and the headers are the tag names. They match exactly the corresponding Examon MQTT topics key/value pairs.
+
+
+```python
+# show results preview
+data.df_table.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chnl</th>
+      <th>cluster</th>
+      <th>core</th>
+      <th>name</th>
+      <th>node</th>
+      <th>org</th>
+      <th>plugin</th>
+      <th>timestamp</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:00</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:02</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:04</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:06</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:08</td>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+---------------------
+
+##### Time series
+The generic tabular format returned by the query can be converted in a time series format dataframe.
+The first column (index) is the time vector while the remaining columns are the data vectors.
+A multi-index header is automatically generated from the query metadata.
+
+
+```python
+data.to_series()
+data.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th colspan="16" halign="left">temp</th>
+    </tr>
+    <tr>
+      <th>core</th>
+      <th>0</th>
+      <th>1</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44</td>
+      <td>46</td>
+      <td>49</td>
+      <td>44</td>
+      <td>46</td>
+      <td>38</td>
+      <td>43</td>
+      <td>39</td>
+      <td>48</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>44</td>
+      <td>46</td>
+      <td>46</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>43</td>
+      <td>38</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>45</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>48</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>45</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>44</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>46</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>47</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>46</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+To obtain a table with a single header simply set the parameter "flat_index=True" during the conversion. The resulting header format is:
+
+metric_name.tag=value.tag=value ...
+
+
+```python
+data.to_series(flat_index=True)
+data.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp.core=0</th>
+      <th>temp.core=1</th>
+      <th>temp.core=10</th>
+      <th>temp.core=11</th>
+      <th>temp.core=12</th>
+      <th>temp.core=13</th>
+      <th>temp.core=14</th>
+      <th>temp.core=15</th>
+      <th>temp.core=2</th>
+      <th>temp.core=3</th>
+      <th>temp.core=4</th>
+      <th>temp.core=5</th>
+      <th>temp.core=6</th>
+      <th>temp.core=7</th>
+      <th>temp.core=8</th>
+      <th>temp.core=9</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44</td>
+      <td>46</td>
+      <td>49</td>
+      <td>44</td>
+      <td>46</td>
+      <td>38</td>
+      <td>43</td>
+      <td>39</td>
+      <td>48</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>44</td>
+      <td>46</td>
+      <td>46</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>43</td>
+      <td>38</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>45</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>48</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>45</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>44</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>46</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>47</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>46</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+---------------------
+
+### Plot results
+The resulting time series can be visualized using the plot method provided by Pandas (matplotlib)
+
+
+```python
+%matplotlib inline
+data.df_ts \
+    .interpolate(method='time') \
+    .plot(marker='.') \
+    .legend(loc='center left', bbox_to_anchor=(1, 0.5))
+```
+
+![png](output_14_1.png)
+
+
+### Export to file
+Both tabular (.df_table) and time series (.df_ts) layouts can be exported to a file (.csv). The output format can be selected using the "shape" parameter.
+
+
+```python
+# export to csv as time series
+data.to_csv('examon_metrics_ts.csv', epoch=True, decimal=',', shape='ts')
+
+# export to csv as table
+data.to_csv('examon_metrics_table.csv', epoch=True, decimal=',', shape='table')  
+
+```
+
+### Merge time series
+Time series with different sampling rate (stored in multiple dataframes) can be merged in a single dataframe and so aligned to a unique (merged) time axis.
+
+1) Get IPMI metrics - Irregular sampling rate (> 10s)
+
+
+```python
+metrics = ['Avg_Power']
+tags = {'org': ['cineca'], 'cluster': ['galileo'], 'plugin' : ['ipmi_pub'], 'node':['node067'] }
+groupby = {'name':'tag', 'tags':['node']}
+aggrby = None
+ipmi_series = ex.query(tstart, tstop, metrics, tags, groupby=groupby, aggrby=aggrby)
+ipmi_series.to_series(flat_index=True)
+ipmi_series.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Avg_Power.node=node067</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00.000</th>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:20.030</th>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:40.020</th>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:50.000</th>
+      <td>220</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:10:10.000</th>
+      <td>210</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+2) Get PMU metrics - Regular sampling rate (2s)
+
+
+```python
+metrics = ['temp']
+tags = {'org': ['cineca'], 'cluster': ['galileo'], 'plugin' : ['pmu_pub'], 'node': ['node067'], 'core':['0'] }
+groupby = {'name':'tag', 'tags':['node','core']}
+aggrby = None
+core_series = ex.query(tstart, tstop, metrics, tags, groupby=groupby, aggrby=aggrby)
+core_series.to_series(flat_index=True)
+core_series.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp.node=node067.core=0</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+3) Merge with interpolation enabled
+
+
+```python
+data = ex.merge([core_series.df_ts, ipmi_series.df_ts], interp='time', dropna=True)
+data.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp.node=node067.core=0</th>
+      <th>Avg_Power.node=node067</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45.0</td>
+      <td>190.0</td>
+    </tr>
+  </tbody>
+</table>
+</div> -->
+
+---------------------
+
+## Proxy
+
+The client allows to connect to the KairosDB server using the proxy features of Grafana.
+To use a Grafana account in the examon client, the setup is the following:
+
+```python
+KAIROSDB_SERVER = '<Grafana Server IP>'
+KAIROSDB_PORT = '<Grafana Server Port>'
+
+USER = '<Grafana User>'
+PWD = '<Grafana Pwd>'
+
+ex = Examon(KAIROSDB_SERVER, port=KAIROSDB_PORT, user=USER, password=PWD, verbose=False, proxy=True)
+```

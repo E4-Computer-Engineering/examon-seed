@@ -1,0 +1,1090 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examon &mdash; Examon 0.3.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Examon
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.3.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Examon Python Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libref.html">Library reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Examon</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examon</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examon.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-examon.examon">
+<span id="examon"></span><h1>Examon<a class="headerlink" href="#module-examon.examon" title="Permalink to this headline">¶</a></h1>
+<p>Examon python client</p>
+<p>Created on Thu Nov 03 23:21:42 2016</p>
+<p>&#64;author:<a class="reference external" href="mailto:francesco&#46;beneventi&#37;&#52;&#48;unibo&#46;it">francesco<span>&#46;</span>beneventi<span>&#64;</span>unibo<span>&#46;</span>it</a></p>
+<ol class="loweralpha simple" start="3">
+<li>2017 University of Bologna, [Department of Electrical, Electronic and Information Engineering, DEI]</li>
+</ol>
+<dl class="attribute">
+<dt id="examon.examon.Client">
+<code class="descclassname">examon.examon.</code><code class="descname">Client</code><a class="headerlink" href="#examon.examon.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="libref.html#examon.examon.Examon" title="examon.examon.Examon"><code class="xref py py-class docutils literal notranslate"><span class="pre">examon.examon.Examon</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="examon.examon.Examon">
+<em class="property">class </em><code class="descclassname">examon.examon.</code><code class="descname">Examon</code><span class="sig-paren">(</span><em>host</em>, <em>port='8083'</em>, <em>user=None</em>, <em>password=None</em>, <em>verbose=True</em>, <em>comp='gzip'</em>, <em>proxy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libref.html#examon.kairosdb.KairosDb" title="examon.kairosdb.KairosDb"><code class="xref py py-class docutils literal notranslate"><span class="pre">examon.kairosdb.KairosDb</span></code></a></p>
+<p>Examon time-series interface</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.build_req" title="examon.examon.Examon.build_req"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_req</span></code></a>(self,&nbsp;url,&nbsp;method)</td>
+<td>Minimal REST client with basic auth</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.exec_query" title="examon.examon.Examon.exec_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exec_query</span></code></a>(self,&nbsp;query_json)</td>
+<td>Execute query</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.exec_query_batch" title="examon.examon.Examon.exec_query_batch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exec_query_batch</span></code></a>(self,&nbsp;query_json)</td>
+<td>Execute query for batch frameworks</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.get_groupby_tagnames" title="examon.examon.Examon.get_groupby_tagnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_groupby_tagnames</span></code></a>(self)</td>
+<td>Return single metric, groupby tags names (list)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.get_metric_tagnames" title="examon.examon.Examon.get_metric_tagnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metric_tagnames</span></code></a>(self,&nbsp;metrics[,&nbsp;…])</td>
+<td>Get tag names that relate only to the provided metrics</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.get_tags" title="examon.examon.Examon.get_tags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tags</span></code></a>(self)</td>
+<td>Return single metric, non grouped queries result, tags</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.get_tagsfromquery" title="examon.examon.Examon.get_tagsfromquery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tagsfromquery</span></code></a>(self,&nbsp;metric,&nbsp;tag)</td>
+<td>Return tag values from the current query</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.get_utctmp" title="examon.examon.Examon.get_utctmp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_utctmp</span></code></a>(self,&nbsp;timestring,&nbsp;time_zone)</td>
+<td>Time string to utc epoch (ms)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.get_values" title="examon.examon.Examon.get_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_values</span></code></a>(self)</td>
+<td>Return single metric, non grouped queries result, values (list)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.merge" title="examon.examon.Examon.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code></a>(self,&nbsp;df_list[,&nbsp;interp,&nbsp;dropna])</td>
+<td>Merge a list of dataframes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.print_http_ret" title="examon.examon.Examon.print_http_ret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_http_ret</span></code></a>(self,&nbsp;caller,&nbsp;ret)</td>
+<td>Print Http request status</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query" title="examon.examon.Examon.query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query</span></code></a>(self,&nbsp;tstart,&nbsp;tstop,&nbsp;metric_names[,&nbsp;…])</td>
+<td>Kairosdb query</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query_batch" title="examon.examon.Examon.query_batch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_batch</span></code></a>(self,&nbsp;tstart,&nbsp;tstop,&nbsp;metric_names)</td>
+<td>Query for batch frameworks</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query_metrics" title="examon.examon.Examon.query_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_metrics</span></code></a>(self,&nbsp;query)</td>
+<td>Query metrics wrapper</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query_metricsnames" title="examon.examon.Examon.query_metricsnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_metricsnames</span></code></a>(self[,&nbsp;filter_kmetrics])</td>
+<td>List of all metric names</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query_metricstags" title="examon.examon.Examon.query_metricstags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_metricstags</span></code></a>(self,&nbsp;metric[,&nbsp;tag,&nbsp;filt,&nbsp;…])</td>
+<td>Return tag values for a metric.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query_tagnames" title="examon.examon.Examon.query_tagnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_tagnames</span></code></a>(self)</td>
+<td>List of all tag names</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query_tagvalues" title="examon.examon.Examon.query_tagvalues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_tagvalues</span></code></a>(self)</td>
+<td>List of all tag values</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.query_tojson" title="examon.examon.Examon.query_tojson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_tojson</span></code></a>(self,&nbsp;tstart,&nbsp;tstop,&nbsp;metric_names)</td>
+<td>Query builder</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.send_req" title="examon.examon.Examon.send_req"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_req</span></code></a>(self,&nbsp;req_api[,&nbsp;json_data])</td>
+<td>Build and send http request</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.setup_kairosdb" title="examon.examon.Examon.setup_kairosdb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_kairosdb</span></code></a>(self,&nbsp;cmd[,&nbsp;method])</td>
+<td>Build kairosdb API request</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.to_csv" title="examon.examon.Examon.to_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_csv</span></code></a>(self,&nbsp;filename[,&nbsp;sep,&nbsp;decimal,&nbsp;…])</td>
+<td>Export to csv.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.to_dict" title="examon.examon.Examon.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>(self)</td>
+<td>Export query results to list of dict (rows) : Keep only ‘group_by’ tags</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.to_excel" title="examon.examon.Examon.to_excel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_excel</span></code></a>(self,&nbsp;filename[,&nbsp;interp,&nbsp;dropna,&nbsp;epoch])</td>
+<td>Export to excel (deprecated).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.Examon.to_series" title="examon.examon.Examon.to_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_series</span></code></a>(self[,&nbsp;columns,&nbsp;flat_index,&nbsp;…])</td>
+<td>Export query results to a time series table.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.Examon.to_table" title="examon.examon.Examon.to_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_table</span></code></a>(self)</td>
+<td>Export query results to a generic table (dataframe)</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="examon.examon.Examon.build_req">
+<code class="descname">build_req</code><span class="sig-paren">(</span><em>self</em>, <em>url</em>, <em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.build_req" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimal REST client with basic auth</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.exec_query">
+<code class="descname">exec_query</code><span class="sig-paren">(</span><em>self</em>, <em>query_json</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.exec_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.exec_query_batch">
+<code class="descname">exec_query_batch</code><span class="sig-paren">(</span><em>self</em>, <em>query_json</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.exec_query_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute query for batch frameworks</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.get_groupby_tagnames">
+<code class="descname">get_groupby_tagnames</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.get_groupby_tagnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return single metric, groupby tags names (list)</p>
+<p>Get the tag names (keys) from the <code class="docutils literal notranslate"><span class="pre">group</span></code> field of the query response.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.get_metric_tagnames">
+<code class="descname">get_metric_tagnames</code><span class="sig-paren">(</span><em>self</em>, <em>metrics</em>, <em>max_workers=16</em>, <em>cache=True</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.get_metric_tagnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get tag names that relate only to the provided metrics</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.get_tags">
+<code class="descname">get_tags</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.get_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return single metric, non grouped queries result, tags</p>
+<p>Get the tags (keys) from the <code class="docutils literal notranslate"><span class="pre">tags</span></code> field of the query response.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.get_tagsfromquery">
+<code class="descname">get_tagsfromquery</code><span class="sig-paren">(</span><em>self</em>, <em>metric</em>, <em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.get_tagsfromquery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return tag values from the current query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>metric</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">metric name</p>
+</dd>
+<dt><strong>tag</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">tag key of the results values</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.get_utctmp">
+<code class="descname">get_utctmp</code><span class="sig-paren">(</span><em>self</em>, <em>timestring</em>, <em>time_zone</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.get_utctmp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time string to utc epoch (ms)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>timestring</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">date in the  “%d-%m-%Y %H:%M:%S” format.</p>
+</dd>
+<dt><strong>time_zone</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">timezone of the <code class="docutils literal notranslate"><span class="pre">timestring</span></code> date.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.get_values">
+<code class="descname">get_values</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.get_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return single metric, non grouped queries result, values (list)</p>
+<p>(Deprecated)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.merge">
+<code class="descname">merge</code><span class="sig-paren">(</span><em>self</em>, <em>df_list</em>, <em>interp=None</em>, <em>dropna=False</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge a list of dataframes.</p>
+<p>…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df_list</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">List of <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframes</p>
+</dd>
+<dt><strong>interp</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str , optional</span></dt>
+<dd><p class="first">The type of interpolation to apply. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">time</span></code> : linear interpolation using the time axis as reference.</li>
+<li><code class="docutils literal notranslate"><span class="pre">zoh</span></code> : zero-order hold. It fills the missing values using the
+last known value (see Pandas <code class="docutils literal notranslate"><span class="pre">ffill</span></code>).</li>
+</ul>
+</dd>
+<dt><strong>dropna</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">Remove the rows containing <code class="docutils literal notranslate"><span class="pre">NaN</span></code> elements. Default is False.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The behviour of this method is function of the <code class="docutils literal notranslate"><span class="pre">df_list</span></code> element shape.
+If the elements are of shape <code class="docutils literal notranslate"><span class="pre">df_table</span></code> they are concatenated.
+(see Pandas <code class="docutils literal notranslate"><span class="pre">append</span></code>).
+If the elements are of shape <code class="docutils literal notranslate"><span class="pre">df_ts</span></code> it executes an outer join.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.print_http_ret">
+<code class="descname">print_http_ret</code><span class="sig-paren">(</span><em>self</em>, <em>caller</em>, <em>ret</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.print_http_ret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print Http request status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query">
+<code class="descname">query</code><span class="sig-paren">(</span><em>self</em>, <em>tstart</em>, <em>tstop</em>, <em>metric_names</em>, <em>tags=None</em>, <em>groupby=None</em>, <em>aggrby=None</em>, <em>limit=None</em>, <em>time_zone='Europe/Rome'</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kairosdb query</p>
+<p>Build and execute a query on KairosDB</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>tstart</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, long, str</span></dt>
+<dd><p class="first">Time indicating the oldest value requested by the query.
+Can be of different formats:</p>
+<ul class="last simple">
+<li>list : [&lt;value&gt; ,&lt;”units”&gt;] where <code class="docutils literal notranslate"><span class="pre">units</span></code> can be ‘seconds’, ‘minutes’, ‘hours’,
+‘days’, ‘months’, ‘years’.</li>
+<li>long : a <code class="docutils literal notranslate"><span class="pre">long</span></code> integer representing the epoch time (milliseconds)</li>
+<li>str : a date string in the <code class="docutils literal notranslate"><span class="pre">&quot;%d-%m-%Y</span> <span class="pre">%H:%M:%S&quot;</span></code> format.</li>
+</ul>
+</dd>
+<dt><strong>tstop</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, long, str</span></dt>
+<dd><p class="first last">Time indicating the most recent value requested by the query
+Can be of different formats (see <code class="docutils literal notranslate"><span class="pre">tstart</span></code>)</p>
+</dd>
+<dt><strong>metric_names</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">List of metrics names</p>
+</dd>
+<dt><strong>tags</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict, optional</span></dt>
+<dd><p class="first last">Tags definition in the KairosDB format: <code class="docutils literal notranslate"><span class="pre">{&lt;Tag_name&gt;:[list</span> <span class="pre">of</span> <span class="pre">values],...}</span></code></p>
+</dd>
+<dt><strong>groupby</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict, optional</span></dt>
+<dd><p class="first">Groups definition  in the kairosDB format:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">grouper</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="o">&lt;</span><span class="n">grouper</span> <span class="n">paramenters</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">grouper</span> <span class="n">paramenters</span> <span class="n">values</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>aggrby</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict, optional</span></dt>
+<dd><p class="first">Aggregators definition in the KairosDB format:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">aggr_type</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s2">&quot;align_sampling&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">bool</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s2">&quot;sampling&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="s2">&quot;val&quot;</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="s2">&quot;time units&quot;</span><span class="o">&gt;</span>
+    <span class="p">},</span>
+ <span class="s2">&quot;align_start_time&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">bool</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>limit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">The number of samples effectively returned by the query. Default is
+None</p>
+</dd>
+<dt><strong>time_zone</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">timezone of the <code class="docutils literal notranslate"><span class="pre">tstart</span></code>/<code class="docutils literal notranslate"><span class="pre">tstop</span></code> dates.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt>&lt;examon.examon.Examon&gt;</dt>
+<dd><p class="first">An examon object with the query results in two formats:</p>
+<ul class="last simple">
+<li>raw : as returned by KairosDB in <code class="docutils literal notranslate"><span class="pre">examon.json_data</span></code></li>
+<li>Pandas dataframe : generic table format in <code class="docutils literal notranslate"><span class="pre">examon.df_table</span></code></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>REF: <a class="reference external" href="https://kairosdb.github.io/docs/build/html/restapi/QueryMetrics.html">https://kairosdb.github.io/docs/build/html/restapi/QueryMetrics.html</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query_batch">
+<code class="descname">query_batch</code><span class="sig-paren">(</span><em>self</em>, <em>tstart</em>, <em>tstop</em>, <em>metric_names</em>, <em>tags=None</em>, <em>groupby=None</em>, <em>aggrby=None</em>, <em>limit=None</em>, <em>time_zone='Europe/Rome'</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for batch frameworks</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query_metrics">
+<code class="descname">query_metrics</code><span class="sig-paren">(</span><em>self</em>, <em>query</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query metrics wrapper</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query_metricsnames">
+<code class="descname">query_metricsnames</code><span class="sig-paren">(</span><em>self</em>, <em>filter_kmetrics=True</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query_metricsnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all metric names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query_metricstags">
+<code class="descname">query_metricstags</code><span class="sig-paren">(</span><em>self</em>, <em>metric</em>, <em>tag=None</em>, <em>filt=None</em>, <em>cache=True</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query_metricstags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return tag values for a metric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>metric</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">metric name</p>
+</dd>
+<dt><strong>tag</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">tag key of the results values</p>
+</dd>
+<dt><strong>filt</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">use <code class="docutils literal notranslate"><span class="pre">filt</span></code> to narrow down the query (filtering by tag)</p>
+</dd>
+<dt><strong>cache</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">if <code class="docutils literal notranslate"><span class="pre">True</span></code> enable the caching of the metrics metadata (tags) to save
+db bandwidth during intensive usage. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the values of the &#39;core&#39; tag for the metric &#39;temp&#39; of node &#39;node109&#39;</span>
+<span class="n">examon</span><span class="o">.</span><span class="n">query_metricstags</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;node&#39;</span><span class="p">:[</span><span class="s1">&#39;node109&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query_tagnames">
+<code class="descname">query_tagnames</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query_tagnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all tag names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query_tagvalues">
+<code class="descname">query_tagvalues</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query_tagvalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all tag values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.query_tojson">
+<code class="descname">query_tojson</code><span class="sig-paren">(</span><em>self</em>, <em>tstart</em>, <em>tstop</em>, <em>metric_names</em>, <em>tags=None</em>, <em>groupby=None</em>, <em>aggrby=None</em>, <em>limit=None</em>, <em>time_zone='Europe/Rome'</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.query_tojson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query builder</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.send_req">
+<code class="descname">send_req</code><span class="sig-paren">(</span><em>self</em>, <em>req_api</em>, <em>json_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.send_req" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build and send http request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.setup_kairosdb">
+<code class="descname">setup_kairosdb</code><span class="sig-paren">(</span><em>self</em>, <em>cmd</em>, <em>method='POST'</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.setup_kairosdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build kairosdb API request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.to_csv">
+<code class="descname">to_csv</code><span class="sig-paren">(</span><em>self</em>, <em>filename</em>, <em>sep=';'</em>, <em>decimal='.'</em>, <em>interp=None</em>, <em>dropna=False</em>, <em>epoch=False</em>, <em>shape='ts'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.to_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export to csv.</p>
+<p>Convenient method to export the query results to a csv file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>filename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Path to the output file location.</p>
+</dd>
+<dt><strong>sep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Column separator. Default is ‘;’</p>
+</dd>
+<dt><strong>decimal</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Decimal format separator. Default is ‘.’</p>
+</dd>
+<dt><strong>interp</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str , optional</span></dt>
+<dd><p class="first">The type of interpolation to apply. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">time</span></code> : linear interpolation using the time axis as reference.</li>
+<li><code class="docutils literal notranslate"><span class="pre">zoh</span></code> : zero-order hold. It fills the missing values using the
+last known value (see Pandas <code class="docutils literal notranslate"><span class="pre">ffill</span></code>).</li>
+</ul>
+</dd>
+<dt><strong>dropna</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">Remove the rows containing <code class="docutils literal notranslate"><span class="pre">NaN</span></code> elements. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt><strong>epoch</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the timestamp format should be in the epoch format (ns)
+Default is <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first">The layout of the resulting table.</p>
+<ul class="last simple">
+<li>‘ts’ : time series format, <code class="docutils literal notranslate"><span class="pre">df_ts</span></code></li>
+<li>‘df’ : generic format, <code class="docutils literal notranslate"><span class="pre">df_table</span></code></li>
+</ul>
+</dd>
+<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional</span></dt>
+<dd><p class="first last">Extra argument passed to pandas <code class="docutils literal notranslate"><span class="pre">to_csv</span></code></p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export query results to list of dict (rows) : Keep only ‘group_by’ tags</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.to_excel">
+<code class="descname">to_excel</code><span class="sig-paren">(</span><em>self</em>, <em>filename</em>, <em>interp=None</em>, <em>dropna=False</em>, <em>epoch=False</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.to_excel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export to excel (deprecated).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.to_series">
+<code class="descname">to_series</code><span class="sig-paren">(</span><em>self</em>, <em>columns=None</em>, <em>flat_index=False</em>, <em>interp=None</em>, <em>dropna=False</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.to_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export query results to a time series table.</p>
+<p>…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>columns</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional</span></dt>
+<dd><p class="first last">list of column names to include in the resulting table. Default is
+all columns.</p>
+</dd>
+<dt><strong>flat_index</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><ul class="first last simple">
+<li>True : The resulting table has only one header row. The column names
+are in the format <code class="docutils literal notranslate"><span class="pre">metric_name.tag=value.tag=value</span> <span class="pre">...</span></code></li>
+<li>False : It returns a pandas dataframe with a <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> type
+header.</li>
+</ul>
+</dd>
+<dt><strong>interp</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str , optional</span></dt>
+<dd><p class="first">The type of interpolation to apply. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">time</span></code> : linear interpolation using the time axis as reference.</li>
+<li><code class="docutils literal notranslate"><span class="pre">zoh</span></code> : zero-order hold. It fills the missing values using the
+last known value (see Pandas <code class="docutils literal notranslate"><span class="pre">ffill</span></code>).</li>
+</ul>
+</dd>
+<dt><strong>dropna</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">Remove the rows containing <code class="docutils literal notranslate"><span class="pre">NaN</span></code> elements. Default is False.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.Examon.to_table">
+<code class="descname">to_table</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.Examon.to_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export query results to a generic table (dataframe)</p>
+<p>…</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="examon.examon.ExamonQL">
+<em class="property">class </em><code class="descclassname">examon.examon.</code><code class="descname">ExamonQL</code><span class="sig-paren">(</span><em>examon</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Examon query language</p>
+<p>Provide an high level interface to data queries</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.AGGRBY" title="examon.examon.ExamonQL.AGGRBY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AGGRBY</span></code></a>(self,&nbsp;name[,&nbsp;align_sampling,&nbsp;…])</td>
+<td>Aggregation statement</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.DESCRIBE" title="examon.examon.ExamonQL.DESCRIBE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DESCRIBE</span></code></a>(self[,&nbsp;metric,&nbsp;tag_key,&nbsp;tag_value,&nbsp;…])</td>
+<td>High level db discovery function</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.FROM" title="examon.examon.ExamonQL.FROM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FROM</span></code></a>(self,&nbsp;\*args)</td>
+<td>From statement</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.JOIN" title="examon.examon.ExamonQL.JOIN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JOIN</span></code></a>(self[,&nbsp;how])</td>
+<td>Join for the output tables of the DESCRIBE command</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.LIMIT" title="examon.examon.ExamonQL.LIMIT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIMIT</span></code></a>(self,&nbsp;limit)</td>
+<td>Limit statement</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.SELECT" title="examon.examon.ExamonQL.SELECT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SELECT</span></code></a>(self,&nbsp;\*args)</td>
+<td>Select statement</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.TSTART" title="examon.examon.ExamonQL.TSTART"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TSTART</span></code></a>(self,&nbsp;\*args)</td>
+<td>TSTART statement</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.TSTOP" title="examon.examon.ExamonQL.TSTOP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TSTOP</span></code></a>(self,&nbsp;\*args)</td>
+<td>TSTOP statement</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.WHERE" title="examon.examon.ExamonQL.WHERE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WHERE</span></code></a>(self,&nbsp;\*\*kwargs)</td>
+<td>Where statement</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.execute" title="examon.examon.ExamonQL.execute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">execute</span></code></a>(self)</td>
+<td>Execute the query</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.get_all_tag_values" title="examon.examon.ExamonQL.get_all_tag_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_tag_values</span></code></a>(self,&nbsp;tag_key)</td>
+<td>All the possible values of a given tag key</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.get_metric_by_tag" title="examon.examon.ExamonQL.get_metric_by_tag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metric_by_tag</span></code></a>(self,&nbsp;tag_key,&nbsp;tag_value)</td>
+<td>The list of the metrics having a given tag key/value pair</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.get_metric_tag_values" title="examon.examon.ExamonQL.get_metric_tag_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metric_tag_values</span></code></a>(self,&nbsp;metric)</td>
+<td>All the possible values of all the tag keys of a given metric</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.get_metrics_list" title="examon.examon.ExamonQL.get_metrics_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metrics_list</span></code></a>(self)</td>
+<td>Table of the metrics names (sensors) contained in the database</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.get_query" title="examon.examon.ExamonQL.get_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_query</span></code></a>(self)</td>
+<td>Return the query object obtained from the builder</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.get_tag_keys" title="examon.examon.ExamonQL.get_tag_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tag_keys</span></code></a>(self[,&nbsp;max_workers,&nbsp;cache])</td>
+<td>Metrics tag keys table</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="libref.html#examon.examon.ExamonQL.get_tag_values" title="examon.examon.ExamonQL.get_tag_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tag_values</span></code></a>(self[,&nbsp;metrics,&nbsp;tag,&nbsp;filt,&nbsp;…])</td>
+<td>Filtered tag values</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="examon.examon.ExamonQL.AGGRBY">
+<code class="descname">AGGRBY</code><span class="sig-paren">(</span><em>self</em>, <em>name</em>, <em>align_sampling=True</em>, <em>align_start_time=False</em>, <em>sampling_value=1</em>, <em>sampling_unit='minutes'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.AGGRBY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregation statement</p>
+<p>Define the aggregators to apply at the query values (avg, sum, ..)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>name</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">one of: ‘avg’, ‘dev’, ‘count’, ‘first’, ‘gaps’, ‘histogram’, ‘last’, ‘least_squares’,
+‘max’, ‘min’, ‘percentile’, ‘sum’, ‘diff’, ‘div’, ‘rate’, ‘sampler’, ‘scale’, ‘trim’,
+‘filter’.
+Check <a class="reference external" href="https://kairosdb.github.io/docs/build/html/restapi/Aggregators.html">https://kairosdb.github.io/docs/build/html/restapi/Aggregators.html</a>
+for the details.</p>
+</dd>
+<dt><strong>sampling_value</strong> <span class="classifier-delimiter">:</span> <span class="classifier">long</span></dt>
+<dd><p class="first last">size of the aggregation interval</p>
+</dd>
+<dt><strong>sampling_unit: str</strong></dt>
+<dd><p class="first last">unit of the aggregation interval. Possible values: can be ‘milliseconds’,
+‘seconds’, ‘minutes’, ‘hours’, ‘days’, ‘weeks’, ‘months’, and ‘years’.</p>
+</dd>
+<dt><strong>align_sampling</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">the aggregation interval is aligned based on the sampling size. Default <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+</dd>
+<dt><strong>align_start_time</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">aggragated data will have the timestamp matching the start of the interval.
+Default <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.DESCRIBE">
+<code class="descname">DESCRIBE</code><span class="sig-paren">(</span><em>self</em>, <em>metric=None</em>, <em>tag_key=None</em>, <em>tag_value=None</em>, <em>where=None</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.DESCRIBE" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level db discovery function</p>
+<p>Return info about db metadata</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>metric</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">metric name</p>
+</dd>
+<dt><strong>tag_key</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">tag key</p>
+</dd>
+<dt><strong>tag_value</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">tag value</p>
+</dd>
+<dt><strong>where</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">filter condition. When not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it filters the results of the
+query: <code class="docutils literal notranslate"><span class="pre">where='&lt;tag_key&gt;==&lt;tag_value&gt;[,&lt;tag_value&gt;,..]''</span></code></p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sq</span> <span class="o">=</span> <span class="n">ExamonQL</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+
+<span class="c1"># return name, tag keys table for all metrics</span>
+<span class="n">sq</span><span class="o">.</span><span class="n">DESCRIBE</span><span class="p">()</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="c1"># return metric name, tag_key, tag values for the provided metric</span>
+<span class="n">sq</span><span class="o">.</span><span class="n">DESCRIBE</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;&lt;metric_name&gt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="c1"># return tag values table for the given tag key</span>
+<span class="n">sq</span><span class="o">.</span><span class="n">DESCRIBE</span><span class="p">(</span><span class="n">tag_key</span><span class="o">=</span><span class="s1">&#39;&lt;tag_key&gt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="c1"># return metric name table for the tag key/value pair</span>
+<span class="n">sq</span><span class="o">.</span><span class="n">DESCRIBE</span><span class="p">(</span><span class="n">tag_key</span> <span class="o">=</span><span class="s1">&#39;&lt;tag_key&gt;&#39;</span><span class="p">,</span> <span class="n">tag_value</span><span class="o">=</span><span class="s1">&#39;&lt;tag_value&gt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="c1"># return metric name, tag_key, tag values for the provided tag key</span>
+<span class="c1"># matching the provided tag values</span>
+<span class="n">sq</span><span class="o">.</span><span class="n">DESCRIBE</span><span class="p">(</span><span class="n">tag_key</span><span class="o">=</span><span class="s1">&#39;&lt;tag_key&gt;&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;&lt;tag_key&gt;==&lt;tag_value&gt;[,&lt;tag_value&gt;,..]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="c1"># return tag values for the provided tag key matching the provided</span>
+<span class="c1"># metric name and tag values</span>
+<span class="n">sq</span><span class="o">.</span><span class="n">DESCRIBE</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;metric_name&gt;&#39;</span><span class="p">],</span> <span class="n">tag_key</span><span class="o">=</span><span class="s1">&#39;&lt;tag_key&gt;&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;&lt;tag_key&gt;==&lt;tag_value&gt;[,&lt;tag_value&gt;,..]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.FROM">
+<code class="descname">FROM</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.FROM" title="Permalink to this definition">¶</a></dt>
+<dd><p>From statement</p>
+<p>It defines the metric names to query.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>args</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">At least one metric name, or a sequence.
+Use <code class="docutils literal notranslate"><span class="pre">'*'</span></code> as wildcard to request all metrics.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.JOIN">
+<code class="descname">JOIN</code><span class="sig-paren">(</span><em>self</em>, <em>how='inner'</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.JOIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join for the output tables of the DESCRIBE command</p>
+<p>Convenient method to join multiple DESCRIBE tables at once.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>how</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">inner</span></code>: intersection (default)</li>
+<li><code class="docutils literal notranslate"><span class="pre">outer</span></code>: union.</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.LIMIT">
+<code class="descname">LIMIT</code><span class="sig-paren">(</span><em>self</em>, <em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit statement</p>
+<p>Limit the number of values returned by the query to the <code class="docutils literal notranslate"><span class="pre">limit</span></code> value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>limit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">limit value</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.SELECT">
+<code class="descname">SELECT</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.SELECT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select statement</p>
+<p>It defines the columns that must be present in the final table other
+than the implicit <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> (default columns).
+Under the hood, select enforces the groupby (tags) property of the standard
+db query.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>args</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Any valid tag key sequence: ‘&lt;tag_key&gt;’[,’&lt;tag_key&gt;’,..].
+Using <code class="docutils literal notranslate"><span class="pre">'*'</span></code> as wildcard, the columns will be all the tags keys of
+the requested metric.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.TSTART">
+<code class="descname">TSTART</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.TSTART" title="Permalink to this definition">¶</a></dt>
+<dd><p>TSTART statement</p>
+<p>Defines the start time slice of the query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>tstart</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, int</span></dt>
+<dd><p class="first">can be one of the following:</p>
+<ul class="last simple">
+<li>relative: providing two arguments: <code class="docutils literal notranslate"><span class="pre">&lt;value&gt;,</span> <span class="pre">'&lt;unit&gt;'</span></code>.
+<code class="docutils literal notranslate"><span class="pre">value</span></code> can be any int while <code class="docutils literal notranslate"><span class="pre">unit</span></code> can be ‘milliseconds’, ‘seconds’,
+‘minutes’, ‘hours’, ‘days’, ‘weeks’, ‘months’, and ‘years’.
+The start time will be <code class="docutils literal notranslate"><span class="pre">value</span></code> <code class="docutils literal notranslate"><span class="pre">units</span></code> ago from now.</li>
+<li>absolute date string: ‘%d-%m-%Y %H:%M:%S’</li>
+<li>absolute epoch: int, milliseconds.</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.TSTOP">
+<code class="descname">TSTOP</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.TSTOP" title="Permalink to this definition">¶</a></dt>
+<dd><p>TSTOP statement</p>
+<p>Defines the stop time slice of the query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>tstop</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, int</span></dt>
+<dd><p class="first">can be one of the following:</p>
+<ul class="last simple">
+<li>relative: providing two arguments: <code class="docutils literal notranslate"><span class="pre">&lt;value&gt;,</span> <span class="pre">'&lt;unit&gt;'</span></code>.
+<code class="docutils literal notranslate"><span class="pre">value</span></code> can be any int while <code class="docutils literal notranslate"><span class="pre">unit</span></code> can be ‘milliseconds’, ‘seconds’,
+‘minutes’, ‘hours’, ‘days’, ‘weeks’, ‘months’, and ‘years’.
+The stop time will be <code class="docutils literal notranslate"><span class="pre">value</span></code> <code class="docutils literal notranslate"><span class="pre">units</span></code> ago from now.</li>
+<li>absolute date string: ‘%d-%m-%Y %H:%M:%S’</li>
+<li>absolute epoch: int, milliseconds.</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.WHERE">
+<code class="descname">WHERE</code><span class="sig-paren">(</span><em>self</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.WHERE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where statement</p>
+<p>It filters (by tag) the query.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">One or multiple <code class="docutils literal notranslate"><span class="pre">&lt;tag_key&gt;='&lt;tag_value&gt;[,&lt;tag_value&gt;,..]'</span></code> arguments</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">SELECT</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">FROM</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">WHERE</span><span class="p">(</span><span class="n">node</span><span class="o">=</span><span class="s1">&#39;r169c11s04&#39;</span><span class="p">,</span> <span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;nagios_pub&#39;</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">TSTART</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;months&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.get_all_tag_values">
+<code class="descname">get_all_tag_values</code><span class="sig-paren">(</span><em>self</em>, <em>tag_key</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.get_all_tag_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>All the possible values of a given tag key</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.get_metric_by_tag">
+<code class="descname">get_metric_by_tag</code><span class="sig-paren">(</span><em>self</em>, <em>tag_key</em>, <em>tag_value</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.get_metric_by_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of the metrics having a given tag key/value pair</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.get_metric_tag_values">
+<code class="descname">get_metric_tag_values</code><span class="sig-paren">(</span><em>self</em>, <em>metric</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.get_metric_tag_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>All the possible values of all the tag keys of a given metric</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.get_metrics_list">
+<code class="descname">get_metrics_list</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.get_metrics_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table of the metrics names (sensors) contained in the database</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.get_query">
+<code class="descname">get_query</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.get_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the query object obtained from the builder</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.get_tag_keys">
+<code class="descname">get_tag_keys</code><span class="sig-paren">(</span><em>self</em>, <em>max_workers=16</em>, <em>cache=True</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.get_tag_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metrics tag keys table</p>
+<p>Each metric in the database comes with a set of tags (key;value) useful for
+filtering during queries. It is possible to obtain from the database all the
+possible tags (keys) associated to a specific metric. The following search
+will scan the entire database checking all the metrics tags.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="examon.examon.ExamonQL.get_tag_values">
+<code class="descname">get_tag_values</code><span class="sig-paren">(</span><em>self</em>, <em>metrics=None</em>, <em>tag=None</em>, <em>filt=None</em>, <em>max_workers=16</em>, <em>cache=True</em><span class="sig-paren">)</span><a class="headerlink" href="#examon.examon.ExamonQL.get_tag_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filtered tag values</p>
+<p>Scan the db searching for tag values matching the filters conditions</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Beneventi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

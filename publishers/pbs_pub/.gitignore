@@ -1,0 +1,14 @@
+*.pyc
+*.lock
+*.log
+*.log.*
+.ipynb*
+.pid
+/examon-cache
+pbs_data_qselect_eni.json
+pbs_pbsnodes_dump.json
+pbs_qstat_dump.json
+example_job_TEMP.json
+install_slurm_20_02.sh
+slurm_schema_22.05.02
+slurm_schema_22.05.10

@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examon Python Client &mdash; Examon 0.3.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Library reference" href="libref.html" />
+    <link rel="prev" title="Welcome to Examon’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Examon
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.3.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examon Python Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#client-installation">Client installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proxy">Proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libref.html">Library reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Examon</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examon Python Client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/intro.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examon-python-client">
+<h1>Examon Python Client<a class="headerlink" href="#examon-python-client" title="Permalink to this headline">¶</a></h1>
+<p>This client allows to retrieve metrics from the Examon database. It is based on the KairosDB REST interface and the Pandas python package so, for a detailed API reference, please follow the respective documentation.</p>
+<hr class="docutils" />
+<div class="section" id="client-installation">
+<h2>Client installation<a class="headerlink" href="#client-installation" title="Permalink to this headline">¶</a></h2>
+<p>Clone this repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir examon-client
+<span class="nb">cd</span> examon-client
+git clone https://git.eees.dei.unibo.it/francesco.beneventi/examon-client .
+</pre></div>
+</div>
+<p>Install locally (no root permissions needed):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --user .
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Import the client</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">examon.examon</span> <span class="kn">import</span> <span class="n">Examon</span>
+</pre></div>
+</div>
+<p>Create an examon instance</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">KAIROSDB_SERVER</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+<span class="n">KAIROSDB_PORT</span> <span class="o">=</span> <span class="s1">&#39;8083&#39;</span>
+
+<span class="n">USER</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">PWD</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">ex</span> <span class="o">=</span> <span class="n">Examon</span><span class="p">(</span><span class="n">KAIROSDB_SERVER</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">KAIROSDB_PORT</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">PWD</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Make a query</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tstart</span> <span class="o">=</span> <span class="s2">&quot;10-10-2017 17:09:00&quot;</span>   
+<span class="n">tstop</span> <span class="o">=</span> <span class="s2">&quot;10-10-2017 21:10:00&quot;</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;node&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;node067&#39;</span><span class="p">]}</span>
+<span class="n">groupby</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;tag&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">:[</span><span class="s1">&#39;core&#39;</span><span class="p">]}</span>
+<span class="n">aggrby</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">tstart</span><span class="p">,</span> <span class="n">tstop</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">groupby</span><span class="p">,</span> <span class="n">aggrby</span><span class="o">=</span><span class="n">aggrby</span> <span class="p">)</span>
+</pre></div>
+</div>
+<!--
+### Results
+The json data returned by the query is converted to a Pandas Dataframe.
+
+#### Data layout
+Currently, the client returns queried data in two basic layout: as table and as time series.
+
+##### Table
+The default format (.df_table) is a generic table.
+One row of this table represents a single data point. The columns are the corresponding tag values and the headers are the tag names. They match exactly the corresponding Examon MQTT topics key/value pairs.
+
+
+```python
+# show results preview
+data.df_table.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chnl</th>
+      <th>cluster</th>
+      <th>core</th>
+      <th>name</th>
+      <th>node</th>
+      <th>org</th>
+      <th>plugin</th>
+      <th>timestamp</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:00</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:02</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:04</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:06</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>data</td>
+      <td>galileo</td>
+      <td>0</td>
+      <td>temp</td>
+      <td>node067</td>
+      <td>cineca</td>
+      <td>pmu_pub</td>
+      <td>2017-10-10 17:09:08</td>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+---------------------
+
+##### Time series
+The generic tabular format returned by the query can be converted in a time series format dataframe.
+The first column (index) is the time vector while the remaining columns are the data vectors.
+A multi-index header is automatically generated from the query metadata.
+
+
+```python
+data.to_series()
+data.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th colspan="16" halign="left">temp</th>
+    </tr>
+    <tr>
+      <th>core</th>
+      <th>0</th>
+      <th>1</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44</td>
+      <td>46</td>
+      <td>49</td>
+      <td>44</td>
+      <td>46</td>
+      <td>38</td>
+      <td>43</td>
+      <td>39</td>
+      <td>48</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>44</td>
+      <td>46</td>
+      <td>46</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>43</td>
+      <td>38</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>45</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>48</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>45</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>44</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>46</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>47</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>46</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+To obtain a table with a single header simply set the parameter "flat_index=True" during the conversion. The resulting header format is:
+
+metric_name.tag=value.tag=value ...
+
+
+```python
+data.to_series(flat_index=True)
+data.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp.core=0</th>
+      <th>temp.core=1</th>
+      <th>temp.core=10</th>
+      <th>temp.core=11</th>
+      <th>temp.core=12</th>
+      <th>temp.core=13</th>
+      <th>temp.core=14</th>
+      <th>temp.core=15</th>
+      <th>temp.core=2</th>
+      <th>temp.core=3</th>
+      <th>temp.core=4</th>
+      <th>temp.core=5</th>
+      <th>temp.core=6</th>
+      <th>temp.core=7</th>
+      <th>temp.core=8</th>
+      <th>temp.core=9</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44</td>
+      <td>46</td>
+      <td>49</td>
+      <td>44</td>
+      <td>46</td>
+      <td>38</td>
+      <td>43</td>
+      <td>39</td>
+      <td>48</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>44</td>
+      <td>46</td>
+      <td>46</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>43</td>
+      <td>38</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>45</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>48</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>45</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45</td>
+      <td>46</td>
+      <td>49</td>
+      <td>46</td>
+      <td>47</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>44</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+      <td>46</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45</td>
+      <td>45</td>
+      <td>48</td>
+      <td>46</td>
+      <td>46</td>
+      <td>39</td>
+      <td>42</td>
+      <td>38</td>
+      <td>49</td>
+      <td>47</td>
+      <td>47</td>
+      <td>43</td>
+      <td>46</td>
+      <td>46</td>
+      <td>47</td>
+      <td>46</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+---------------------
+
+### Plot results
+The resulting time series can be visualized using the plot method provided by Pandas (matplotlib)
+
+
+```python
+%matplotlib inline
+data.df_ts \
+    .interpolate(method='time') \
+    .plot(marker='.') \
+    .legend(loc='center left', bbox_to_anchor=(1, 0.5))
+```
+
+![png](output_14_1.png)
+
+
+### Export to file
+Both tabular (.df_table) and time series (.df_ts) layouts can be exported to a file (.csv). The output format can be selected using the "shape" parameter.
+
+
+```python
+# export to csv as time series
+data.to_csv('examon_metrics_ts.csv', epoch=True, decimal=',', shape='ts')
+
+# export to csv as table
+data.to_csv('examon_metrics_table.csv', epoch=True, decimal=',', shape='table')  
+
+```
+
+### Merge time series
+Time series with different sampling rate (stored in multiple dataframes) can be merged in a single dataframe and so aligned to a unique (merged) time axis.
+
+1) Get IPMI metrics - Irregular sampling rate (> 10s)
+
+
+```python
+metrics = ['Avg_Power']
+tags = {'org': ['cineca'], 'cluster': ['galileo'], 'plugin' : ['ipmi_pub'], 'node':['node067'] }
+groupby = {'name':'tag', 'tags':['node']}
+aggrby = None
+ipmi_series = ex.query(tstart, tstop, metrics, tags, groupby=groupby, aggrby=aggrby)
+ipmi_series.to_series(flat_index=True)
+ipmi_series.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Avg_Power.node=node067</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00.000</th>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:20.030</th>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:40.020</th>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:50.000</th>
+      <td>220</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:10:10.000</th>
+      <td>210</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+2) Get PMU metrics - Regular sampling rate (2s)
+
+
+```python
+metrics = ['temp']
+tags = {'org': ['cineca'], 'cluster': ['galileo'], 'plugin' : ['pmu_pub'], 'node': ['node067'], 'core':['0'] }
+groupby = {'name':'tag', 'tags':['node','core']}
+aggrby = None
+core_series = ex.query(tstart, tstop, metrics, tags, groupby=groupby, aggrby=aggrby)
+core_series.to_series(flat_index=True)
+core_series.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp.node=node067.core=0</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+3) Merge with interpolation enabled
+
+
+```python
+data = ex.merge([core_series.df_ts, ipmi_series.df_ts], interp='time', dropna=True)
+data.df_ts.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp.node=node067.core=0</th>
+      <th>Avg_Power.node=node067</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-10 17:09:00</th>
+      <td>44.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:02</th>
+      <td>43.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:04</th>
+      <td>45.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:06</th>
+      <td>45.0</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-10 17:09:08</th>
+      <td>45.0</td>
+      <td>190.0</td>
+    </tr>
+  </tbody>
+</table>
+</div> --></div>
+<hr class="docutils" />
+<div class="section" id="proxy">
+<h2>Proxy<a class="headerlink" href="#proxy" title="Permalink to this headline">¶</a></h2>
+<p>The client allows to connect to the KairosDB server using the proxy features of Grafana.
+To use a Grafana account in the examon client, the setup is the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">KAIROSDB_SERVER</span> <span class="o">=</span> <span class="s1">&#39;&lt;Grafana Server IP&gt;&#39;</span>
+<span class="n">KAIROSDB_PORT</span> <span class="o">=</span> <span class="s1">&#39;&lt;Grafana Server Port&gt;&#39;</span>
+
+<span class="n">USER</span> <span class="o">=</span> <span class="s1">&#39;&lt;Grafana User&gt;&#39;</span>
+<span class="n">PWD</span> <span class="o">=</span> <span class="s1">&#39;&lt;Grafana Pwd&gt;&#39;</span>
+
+<span class="n">ex</span> <span class="o">=</span> <span class="n">Examon</span><span class="p">(</span><span class="n">KAIROSDB_SERVER</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">KAIROSDB_PORT</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">PWD</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="libref.html" class="btn btn-neutral float-right" title="Library reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Examon’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Beneventi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
